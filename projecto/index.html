@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="estilos.css" type="text/css" />
+    <title>Sistema proyecto</title>
+  </head>
+  <body>
+    <!-- Barra de navegacion -->
+    <div id="sidemenu" class="menu-collapsed">
+      <!-- header -->
+      <div id="header">
+        <div id="menu-btn">
+          <div class="btn-hamburger"></div>
+          <div class="btn-hamburger"></div>
+          <div class="btn-hamburger"></div>
+        </div>
+        <div id="title"><span>menu</span></div>
+      </div>
+      <!-- Items -->
+      <div id="menu-items">
+        <!-- inicio -->
+        <div class="item">
+          <a href="#">
+            <div class="icon">
+              <img src="icons/inicio.png" alt="Icono de inicio" />
+            </div>
+            <div class="title"><span>Inicio</span></div>
+          </a>
+        </div>
+        <!-- Registro -->
+        <div class="item separator"></div>
+        <div class="item">
+          <a href="./modulos/registro.html">
+            <div class="icon">
+              <img src="icons/registro.png" alt="Icono de registro" />
+            </div>
+            <div class="title"><span>Registro</span></div>
+          </a>
+        </div>
+        <div class="item separator"></div>
+      </div>
+    </div>
+
+    <script>
+      const btn = document.querySelector("#menu-btn");
+      const menu = document.querySelector("#sidemenu");
+      btn.addEventListener("click", (e) => {
+        menu.classList.toggle("menu-expanded");
+        menu.classList.toggle("menu-collapsed");
+
+        document.querySelector("body").classList.toggle("body-expanded");
+      });
+    </script>
+    <!-- Main container -->
+
+    <div id="main-container">
+      <section>
+        <h1>Tecnologia y redes informaticas</h1>
+        <p>trabajamos para crear soluciones</p>
+      </section>
+    </div>
+  </body>
+</html>

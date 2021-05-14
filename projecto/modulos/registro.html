@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro</title>
+    <link rel="stylesheet" href="../estilos.css" />
+  </head>
+  <body>
+    <!-- Barra de navegacion -->
+    <div id="sidemenu" class="menu-collapsed">
+      <!-- header -->
+      <div id="header">
+        <div id="menu-btn">
+          <div class="btn-hamburger"></div>
+          <div class="btn-hamburger"></div>
+          <div class="btn-hamburger"></div>
+        </div>
+        <div id="title"><span>menu</span></div>
+      </div>
+      <!-- Items -->
+      <div id="menu-items">
+        <!-- inicio -->
+        <div class="item">
+          <a href="../index.html">
+            <div class="icon">
+              <img src="../icons/inicio.png" alt="Icono de inicio" />
+            </div>
+            <div class="title"><span>Inicio</span></div>
+          </a>
+        </div>
+        <!-- Registro -->
+        <div class="item separator"></div>
+        <div class="item">
+          <a href="#">
+            <div class="icon">
+              <img src="../icons/registro.png" alt="Icono de registro" />
+            </div>
+            <div class="title"><span>Registro</span></div>
+          </a>
+        </div>
+        <div class="item separator"></div>
+      </div>
+    </div>
+
+    <script>
+      const btn = document.querySelector("#menu-btn");
+      const menu = document.querySelector("#sidemenu");
+      btn.addEventListener("click", (e) => {
+        menu.classList.toggle("menu-expanded");
+        menu.classList.toggle("menu-collapsed");
+
+        document.querySelector("body").classList.toggle("body-expanded");
+      });
+    </script>
+    <!-- main container -->
+    <div id="main-container">
+      <section class="form-register">
+        <h4>Formulario Registro</h4>
+        <input
+          class="text-input"
+          type="text"
+          name="nombres"
+          id="nombres"
+          placeholder="Nombres Completos"
+        />
+        <input
+          class="text-input"
+          type="number"
+          name="cedula"
+          id="cedula"
+          placeholder="Numero de Identificación"
+        />
+        <input
+          class="text-input"
+          type="email"
+          name="correo"
+          id="correo"
+          placeholder="Correo Electronico"
+        />
+        <input
+          class="text-input"
+          type="text"
+          name="cargo"
+          id="cargo"
+          placeholder="Cargo del tecnico"
+        />
+        <br />
+        <input class="button" type="submit" value="Registrar" />
+      </section>
+    </div>
+  </body>
+</html>
