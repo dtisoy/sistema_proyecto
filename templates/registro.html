@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div id="main-container">
+  <section class="form-register">
+    <h4>Formulario Registro</h4>
+    <input
+      class="text-input"
+      type="text"
+      name="nombres"
+      id="nombres"
+      placeholder="Nombres Completos"
+    />
+    <input
+      class="text-input"
+      type="number"
+      name="cedula"
+      id="cedula"
+      placeholder="Numero de Identificación"
+    />
+    <input
+      class="text-input"
+      type="email"
+      name="correo"
+      id="correo"
+      placeholder="Correo Electronico"
+    />
+    <input
+      class="text-input"
+      type="text"
+      name="cargo"
+      id="cargo"
+      placeholder="Cargo del tecnico"
+    />
+    <br />
+    <input class="button" type="submit" value="Registrar" />
+  </section>
+</div>
+{% endblock %}
+<!-- main container -->
+

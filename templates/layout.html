@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="estilos.css" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/estilos.css') }}"
+    />
     <title>Sistema proyecto</title>
   </head>
   <body>
@@ -17,15 +20,15 @@
           <div class="btn-hamburger"></div>
           <div class="btn-hamburger"></div>
         </div>
-        <div id="title"><span>menu</span></div>
+        <div id="title"><span>Proyecto ADSI</span></div>
       </div>
       <!-- Items -->
       <div id="menu-items">
         <!-- inicio -->
         <div class="item">
-          <a href="#">
+          <a href="/">
             <div class="icon">
-              <img src="icons/inicio.png" alt="Icono de inicio" />
+              <img src="{{ url_for('static', filename='icons/inicio.png') }}" alt="Icono de inicio" />
             </div>
             <div class="title"><span>Inicio</span></div>
           </a>
@@ -33,9 +36,9 @@
         <!-- Registro -->
         <div class="item separator"></div>
         <div class="item">
-          <a href="./modulos/registro.html">
+          <a href="/registro">
             <div class="icon">
-              <img src="icons/registro.png" alt="Icono de registro" />
+              <img src="{{ url_for('static', filename='icons/registro.png') }}" alt="Icono de registro" />
             </div>
             <div class="title"><span>Registro</span></div>
           </a>
@@ -55,12 +58,9 @@
       });
     </script>
     <!-- Main container -->
-
-    <div id="main-container">
-      <section>
-        <h1>Tecnologia y redes informaticas</h1>
-        <p>trabajamos para crear soluciones</p>
-      </section>
-    </div>
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+       </div>
   </body>
 </html>
