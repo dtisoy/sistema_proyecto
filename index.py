@@ -12,8 +12,16 @@ def home():
 
 
 @app.route('/registro')
-def about():
+def registro():
     return render_template('registro.html')
+
+@app.route('/equipos')
+def equipos():
+    return render_template('equipos.html')
+
+@app.route('/mantenimiento')
+def mantenimiento():
+    return render_template('mantenimiento.html')
 
 
 if __name__ == '__main__':
