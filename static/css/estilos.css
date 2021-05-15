@@ -6,14 +6,27 @@
   --hovercolor: rgb(23, 23, 23);
   --width-collapsed: 50px;
 }
+
 body {
-  background-color: #032c55;
+  background: #373b44; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #4286f4,
+    #373b44
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #4286f4,
+    #373b44
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   font-family: monospace;
   font-size: 18px;
   padding: 0;
   margin: 0;
   margin-left: var(--width-collapsed);
 }
+
 .body-expanded {
   margin-left: var(--width);
 }
@@ -140,7 +153,6 @@ body {
   width: calc(var(--width) - var(--width-collapsed)- 5px);
   overflow: hidden;
   display: inline-block;
-
 }
 /* .menu-expanded #profile #photo {
   width: 200px;
@@ -173,9 +185,10 @@ body {
   font-family: monospace;
 }
 body {
-  background-image: url(
-    "/home/ltisoy/Documents/projects/sistema_project/projecto/img/fondo.jpg"
-  );
+  background: #0f2027;
+  background: -webkit-linear-gradient(to right, #2c5364, #203a43, #0f2027);
+  background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
+
 }
 
 .form-register {
