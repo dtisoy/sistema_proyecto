@@ -52,10 +52,16 @@ def registrar_tecnico():
 
 @app.route('/delete/<string:ce_tec>')
 def delete_tecnico(ce_tec):
-    cur = mysql.connection.cursor()
-    cur.execute('DELETE FROM tecnicos WHERE ce_tec  = {0}'.format(ce_tec))
-    mysql.connection.commit()
-    return redirect(url_for('registro'))
+    try:
+        cur = mysql.connection.cursor()
+        cur.execute('DELETE FROM tecnicos WHERE ce_tec  = {0}'.format(ce_tec))
+        mysql.connection.commit()
+        flash('Tecnico eliminado Satisfactoriamente')
+        return redirect(url_for('registro'))
+
+    except:
+        flash('ohh, ha ocurrido un error, prueba borrando las ordenes activas')
+        return redirect(url_for('registro'))
 
 
 @app.route('/equipos')
