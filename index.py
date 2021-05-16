@@ -1,4 +1,5 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, url_for
+
 from flask_mysqldb import MySQL
 
 # definir como archivo de arranque
@@ -26,6 +27,14 @@ def registro():
     cur.execute('SELECT * FROM tecnicos')
     data = cur.fetchall()
     return render_template('registro.html', tecnicos=data)
+
+# configurando una ruta que reciba un parametro de la base de datos
+@app.route('/delete/<string:ce_tec>')
+def delete_tecnico(ce_tec):
+    cur = mysql.connection.cursor()
+    cur.execute('DELETE FROM tecnicos WHERE ce_tec  = {0}'.format(ce_tec))
+    mysql.connection.commit()
+    return redirect(url_for('registro'))
 
 @app.route('/equipos')
 def equipos():

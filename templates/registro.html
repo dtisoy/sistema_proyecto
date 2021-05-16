@@ -42,6 +42,7 @@
       <td>Cargo</td>
       <td>Correo</td>
       <td>Area Equipo</td>
+      <td>Operaciones</td>
     </thead>
     <tbody>
       {% for tecnico in tecnicos %}
@@ -51,6 +52,10 @@
         <td>{{ tecnico.2 }}</td>
         <td>{{ tecnico.3 }}</td>
         <td>{{ tecnico.4 }}</td>
+        <td>
+          <a href="#">Editar</a>
+          <a href="/delete/{{tecnico.0}}">Eliminar</a>
+        </td>
       </tr>
       {% endfor %}
     </tbody>
