@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
- {% block content %}
+{% block content %}
 <!-- mensajes -->
 {% with messages = get_flashed_messages() %}
 {% if messages %}
@@ -15,47 +15,47 @@
 {% endif %}
 {% endwith %}
 
-<div id="main-container">
-  <form action="/registrar_tecnico" class="form-register" method="POST">
-    <input class="text-input" type="number" name="cedula" id="cedula" placeholder="Numero de Identificación" />
-    <input class="text-input" type="text" name="nombres" id="nombres" placeholder="Nombres Completos" />
-    <input class="text-input" type="text" name="cargo" id="cargo" placeholder="Cargo del tecnico" />
-    <input class="text-input" type="text" name="correo" id="correo" placeholder="Correo Electronico" />
-    <input class="text-input" type="text" name="equipo" id="equipo" placeholder="Equipo de trabajo" />
 
-    <br />
-    <button type="submit" class="button">
-      Registrar
-    </button>
-    <!-- <input class="button" type="submit" value="Registrar" /> -->
-  </form>
+<form action="/registrar_tecnico" class="form-register" method="POST">
+  <input class="text-input" type="number" name="cedula" id="cedula" placeholder="Numero de Identificación" />
+  <input class="text-input" type="text" name="nombres" id="nombres" placeholder="Nombres Completos" />
+  <input class="text-input" type="text" name="cargo" id="cargo" placeholder="Cargo del tecnico" />
+  <input class="text-input" type="text" name="correo" id="correo" placeholder="Correo Electronico" />
+  <input class="text-input" type="text" name="equipo" id="equipo" placeholder="Equipo de trabajo" />
+
   <br />
-  <!-- tabla tecnicos -->
-  <table>
-    <thead>
-      <td>Id</td>
-      <td>Nombre Completo</td>
-      <td>Cargo</td>
-      <td>Correo</td>
-      <td>Equipo de trabajo</td>
-      <td>Operaciones</td>
-    </thead>
-    <tbody>
-      {% for tecnico in tecnicos %}
-      <tr>
-        <td>{{ tecnico.0 }}</td>
-        <td>{{ tecnico.1 }}</td>
-        <td>{{ tecnico.2 }}</td>
-        <td>{{ tecnico.3 }}</td>
-        <td>{{ tecnico.4 }}</td>
-        <td>
-          <a href="#">Editar</a>
-          <a href="/delete/{{tecnico.0}}">Eliminar</a>
-        </td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-</div>
+  <button type="submit" class="button">
+    Registrar
+  </button>
+  <!-- <input class="button" type="submit" value="Registrar" /> -->
+</form>
+<br />
+<!-- tabla tecnicos -->
+<table>
+  <thead>
+    <td>Id</td>
+    <td>Nombre Completo</td>
+    <td>Cargo</td>
+    <td>Correo</td>
+    <td>Equipo de trabajo</td>
+    <td>Operaciones</td>
+  </thead>
+  <tbody>
+    {% for tecnico in tecnicos %}
+    <tr>
+      <td>{{ tecnico.0 }}</td>
+      <td>{{ tecnico.1 }}</td>
+      <td>{{ tecnico.2 }}</td>
+      <td>{{ tecnico.3 }}</td>
+      <td>{{ tecnico.4 }}</td>
+      <td>
+        <a href="/edit-tecnico/{{tecnico.0}}">Editar</a>
+        <a href="/delete/{{tecnico.0}}">Eliminar</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
 {% endblock %}
 <!-- main container -->

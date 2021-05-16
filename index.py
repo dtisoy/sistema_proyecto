@@ -64,9 +64,45 @@ def delete_tecnico(ce_tec):
         return redirect(url_for('registro'))
 
 
+@app.route('/edit-tecnico/<string:ce_tec>')
+def obtener_registro_tecnico(ce_tec):
+    cur = mysql.connection.cursor()
+    cur.execute('SELECT * FROM tecnicos WHERE ce_tec = {0}'.format(ce_tec))
+    data = cur.fetchall()
+
+    return render_template('edit-registro.html', tecnico=data[0])
+
+
+@app.route('/update-tecnico/<string:ce_tec>', methods=['POST'])
+def update_tecnico(ce_tec):
+    if request.method == 'POST':
+        id = request.form['cedula']
+        nombre = request.form['nombres']
+        cargo = request.form['cargo']
+        email = request.form['correo']
+        equipo = request.form['equipo']
+        cur = mysql.connection.cursor()
+        cur.execute("""
+            UPDATE tecnicos
+            SET nom_tec=%s,
+                car_tec=%s, 
+                cor_tec=%s, 
+                equ_tec=%s
+            WHERE ce_tec=%s
+         """, (nombre, cargo, email, equipo, id))
+        mysql.connection.commit()
+        cur.close()
+        flash('Datos actualizados de manera correcta')
+        return redirect(url_for('registro'))
+
+# Equipos
+
+
 @app.route('/equipos')
 def equipos():
     return render_template('equipos.html')
+
+# mantenimiento
 
 
 @app.route('/mantenimiento')

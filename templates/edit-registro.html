@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<form action="/update-tecnico/{{tecnico.0}}" class="form-register" method="POST">
+    <input class="text-input" type="number" name="cedula" id="cedula" placeholder="Numero de Identificación" 
+        value="{{tecnico.0}}" />
+    <input class="text-input" type="text" name="nombres" id="nombres" placeholder="Nombres Completos"
+        value="{{tecnico.1}}" />
+    <input class="text-input" type="text" name="cargo" id="cargo" placeholder="Cargo del tecnico"
+        value="{{tecnico.2}}" />
+    <input class="text-input" type="text" name="correo" id="correo" placeholder="Correo Electronico"
+        value="{{tecnico.3}}" />
+    <input class="text-input" type="text" name="equipo" id="equipo" placeholder="Equipo de trabajo"
+        value="{{tecnico.4}}" />
+
+    <br />
+    <button type="submit" class="button">
+        Actualizar
+    </button>
+
+</form>
+{% endblock %}
