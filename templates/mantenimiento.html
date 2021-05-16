@@ -2,4 +2,38 @@
 
 {% block content %}
 <h1>mantenimiento</h1>
+<br>
+<table>
+    <thead>
+        <tr>
+            <td>Id orden</td>
+            <td>Id tecnico</td>
+            <td>id equipo</td>
+            <td>estado orden</td>
+            <td>fecha</td>
+            <td>departamento</td>
+            <td>Descripcion</td>
+            <td>costo</td>
+            <td>Operaciones</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for orden in ordenes %}
+        <tr>            
+            <td> {{orden.0}} </td>
+            <td> {{orden.1}} </td>
+            <td> {{orden.2}} </td>
+            <td> {{orden.3}} </td>
+            <td> {{orden.4}} </td>
+            <td> {{orden.5}} </td>
+            <td> {{orden.6}} </td>
+            <td> {{orden.7}} </td>
+            <td>
+                <a href="#">Editar</a>
+                <a href="/delete-orden/{{orden.0}}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 {% endblock %}
