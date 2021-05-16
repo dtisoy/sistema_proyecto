@@ -118,6 +118,7 @@ def delete_orden(id_ord):
     cur = mysql.connection.cursor()
     cur.execute('DELETE FROM orden_trabajo WHERE id_ord  = {0}'.format(id_ord))
     mysql.connection.commit()
+    flash('Orden eliminada de manera correcta')
     return redirect(url_for('mantenimiento'))
 
 
