@@ -31,7 +31,7 @@
 </form>
 <br />
 <!-- tabla tecnicos -->
-<table>
+<table class="table table-striped table-bordered bg-transparent table-sm">
   <thead>
     <td>Id</td>
     <td>Nombre Completo</td>
@@ -49,8 +49,8 @@
       <td>{{ tecnico.3 }}</td>
       <td>{{ tecnico.4 }}</td>
       <td>
-        <a href="/edit-tecnico/{{tecnico.0}}">Editar</a>
-        <a href="/delete/{{tecnico.0}}">Eliminar</a>
+        <a href="/edit-tecnico/{{tecnico.0}}" class="btn btn-secondary">Editar</a>
+        <a href="/delete/{{tecnico.0}}" class="btn btn-danger btn-delete">Eliminar</a>
       </td>
     </tr>
     {% endfor %}

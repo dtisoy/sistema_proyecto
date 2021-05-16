@@ -1,95 +1,103 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- bootstrap 4 -->
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- bootstrap 4 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
+    <!-- bootswatch -->
     <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
-      crossorigin="anonymous"
-    />
-    <!-- css -->
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='css/estilos.css') }}"
-    />
-    <title>Sistema proyecto</title>
-  </head>
-  <body>
-    <!-- Barra de navegacion -->
-    <div id="sidemenu" class="menu-collapsed">
-      <!-- header -->
-      <div id="header">
-        <div id="menu-btn">
-          <div class="btn-hamburger"></div>
-          <div class="btn-hamburger"></div>
-          <div class="btn-hamburger"></div>
-        </div>
-        <div id="title"><span>Proyecto ADSI</span></div>
+    rel="stylesheet"
+    href="https://bootswatch.com/4/materia/bootstrap.min.css"
+  />
+  <!-- css -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}" />
+  <title>Sistema proyecto</title>
+</head>
+
+<body>
+  <!-- Barra de navegacion -->
+  <div id="sidemenu" class="menu-collapsed">
+    <!-- header -->
+    <div id="header">
+      <div id="menu-btn">
+        <div class="btn-hamburger"></div>
+        <div class="btn-hamburger"></div>
+        <div class="btn-hamburger"></div>
       </div>
-      <!-- Items -->
-      <div id="menu-items">
-        <!-- inicio -->
-        <div class="item">
-          <a href="/">
-            <div class="icon">
-              <img src="{{ url_for('static', filename='icons/inicio.png') }}" alt="Icono de inicio" />
-            </div>
-            <div class="title"><span>Inicio</span></div>
-          </a>
-        </div>
-        <div class="item separator"></div>
-        <!-- Registro -->
-        
-        <div class="item">
-          <a href="/registro">
-            <div class="icon">
-              <img src="{{ url_for('static', filename='icons/registro.png') }}" alt="Icono de registro" />
-            </div>
-            <div class="title"><span>Registro</span></div>
-          </a>
-        </div>
-        <div class="item separator"></div>
-        <!-- equipos-->
-        <div class="item">
-            <a href="/equipos">
-              <div class="icon">
-                <img src="{{ url_for('static', filename='icons/equipos.png') }}" alt="Icono de registro" />
-              </div>
-              <div class="title"><span>equipos</span></div>
-            </a>
-          </div>
-          <div class="item separator"></div>
-        <!-- mantenimiento -->
-        <div class="item">
-            <a href="/mantenimiento">
-              <div class="icon">
-                <img src="{{ url_for('static', filename='icons/mantenimiento.png') }}" alt="Icono de registro" />
-              </div>
-              <div class="title"><span>mantenimiento</span></div>
-            </a>
-          </div>
-          <div class="item separator"></div>
-      </div>
+      <div id="title"><span>Proyecto ADSI</span></div>
     </div>
+    <!-- Items -->
+    <div id="menu-items">
+      <!-- inicio -->
+      <div class="item">
+        <a href="/">
+          <div class="icon">
+            <img src="{{ url_for('static', filename='icons/inicio.png') }}" alt="Icono de inicio" />
+          </div>
+          <div class="title"><span>Inicio</span></div>
+        </a>
+      </div>
+      <div class="item separator"></div>
+      <!-- Registro -->
 
-    <script>
-      const btn = document.querySelector("#menu-btn");
-      const menu = document.querySelector("#sidemenu");
-      btn.addEventListener("click", (e) => {
-        menu.classList.toggle("menu-expanded");
-        menu.classList.toggle("menu-collapsed");
+      <div class="item">
+        <a href="/registro">
+          <div class="icon">
+            <img src="{{ url_for('static', filename='icons/registro.png') }}" alt="Icono de registro" />
+          </div>
+          <div class="title"><span>Registro</span></div>
+        </a>
+      </div>
+      <div class="item separator"></div>
+      <!-- equipos-->
+      <div class="item">
+        <a href="/equipos">
+          <div class="icon">
+            <img src="{{ url_for('static', filename='icons/equipos.png') }}" alt="Icono de registro" />
+          </div>
+          <div class="title"><span>equipos</span></div>
+        </a>
+      </div>
+      <div class="item separator"></div>
+      <!-- mantenimiento -->
+      <div class="item">
+        <a href="/mantenimiento">
+          <div class="icon">
+            <img src="{{ url_for('static', filename='icons/mantenimiento.png') }}" alt="Icono de registro" />
+          </div>
+          <div class="title"><span>mantenimiento</span></div>
+        </a>
+      </div>
+      <div class="item separator"></div>
+    </div>
+  </div>
 
-        document.querySelector("body").classList.toggle("body-expanded");
-      });
-    </script>
-    <!-- Main container -->
-    <div id="main-container" class="container">
-        {% block content %}
-        {% endblock %}
-       </div>
-  </body>
+  <script>
+    const btn = document.querySelector("#menu-btn");
+    const menu = document.querySelector("#sidemenu");
+    btn.addEventListener("click", (e) => {
+      menu.classList.toggle("menu-expanded");
+      menu.classList.toggle("menu-collapsed");
+
+      document.querySelector("body").classList.toggle("body-expanded");
+    });
+  </script>
+  <!-- Main container -->
+  <div id="main-container" class="container">
+    {% block content %}
+    {% endblock %}
+  </div>
+  <!-- scrips -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>
