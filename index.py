@@ -1,19 +1,31 @@
 from flask import Flask, render_template
+from flask_mysqldb import MySQL
 
 # definir como archivo de arranque
 app = Flask(__name__)
 
-# crear una ruta de la pagina principal
+# Mysql connection
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_USER'] = 'root'
+app.config['MYSQL_PASSWORD'] = 'usuario1'
+app.config['MYSQL_DB'] = 'proyecto_SistemaYRedes'
+mysql = MySQL(app)
 
+# settings
+app.secret_key = 'mysecretkey'
 
 @app.route('/')
-def home():
+def home():   
     return render_template('home.html')
 
 
 @app.route('/registro')
 def registro():
-    return render_template('registro.html')
+     #obtener registros de base de datos
+    cur = mysql.connection.cursor()
+    cur.execute('SELECT * FROM tecnicos')
+    data = cur.fetchall()
+    return render_template('registro.html', tecnicos=data)
 
 @app.route('/equipos')
 def equipos():

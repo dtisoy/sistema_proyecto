@@ -1,6 +1,4 @@
-{% extends "layout.html" %}
-
-{% block content %}
+{% extends "layout.html" %} {% block content %}
 <div id="main-container">
   <section class="form-register">
     <h4>Formulario Registro</h4>
@@ -35,7 +33,28 @@
     <br />
     <input class="button" type="submit" value="Registrar" />
   </section>
+  <br />
+  <!-- tabla tecnicos -->
+  <table>
+    <thead>
+      <td>Id</td>
+      <td>Nombre Completo</td>
+      <td>Cargo</td>
+      <td>Correo</td>
+      <td>Area Equipo</td>
+    </thead>
+    <tbody>
+      {% for tecnico in tecnicos %}
+      <tr>
+        <td>{{ tecnico.0 }}</td>
+        <td>{{ tecnico.1 }}</td>
+        <td>{{ tecnico.2 }}</td>
+        <td>{{ tecnico.3 }}</td>
+        <td>{{ tecnico.4 }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 </div>
 {% endblock %}
 <!-- main container -->
-
