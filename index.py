@@ -6,10 +6,10 @@ from flask_mysqldb import MySQL
 app = Flask(__name__)
 
 # Mysql connection
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'usuario1'
-app.config['MYSQL_DB'] = 'proyecto_SistemaYRedes'
+app.config['MYSQL_HOST'] = 'bonnnebwnn4sjw9twogv-mysql.services.clever-cloud.com'
+app.config['MYSQL_USER'] = 'u13fjv8g9janha01'
+app.config['MYSQL_PASSWORD'] = 'uz5RG7JhIYudobtbZ217'
+app.config['MYSQL_DB'] = 'bonnnebwnn4sjw9twogv'
 mysql = MySQL(app)
 
 # settings
@@ -123,4 +123,4 @@ def delete_orden(id_ord):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
