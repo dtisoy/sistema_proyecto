@@ -85,6 +85,24 @@
   </script>
   <!-- Main container -->
   <div id="main-container" class="container">
+
+    <!-- mensajes -->
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      {{ message }}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    
+    <!-- bloque de contenido de otros templates -->
     {% block content %}
     {% endblock %}
   </div>
