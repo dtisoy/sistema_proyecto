@@ -5,4 +5,5 @@ itsdangerous==2.0.0
 Jinja2==3.0.0
 MarkupSafe==2.0.0
 mysqlclient==2.0.3
+python-dotenv==0.17.1
 Werkzeug==2.0.0

@@ -1,22 +1,27 @@
-from flask import Flask, render_template, redirect, url_for, request, flash
+import os
+from dotenv import load_dotenv
 
+from flask import Flask, render_template, redirect, url_for, request, flash
 from flask_mysqldb import MySQL
 
 # definir como archivo de arranque
 app = Flask(__name__)
 
+#cargar archivo .env
+load_dotenv()
+
+host_mysql = os.getenv('HOST_SQL')
+user_mysql = os.getenv('USER_MYSQL')
+password_mysql = os.getenv('PASSWORD_MYSQL')
+db_mysql = os.getenv('DB_MYSQL')
+
 # Mysql connection
 # conexion remota
-"""
-app.config['MYSQL_HOST'] = 'bonnnebwnn4sjw9twogv-mysql.services.clever-cloud.com'
-app.config['MYSQL_USER'] = 'u13fjv8g9janha01'
-app.config['MYSQL_PASSWORD'] = 'uz5RG7JhIYudobtbZ217'
-app.config['MYSQL_DB'] = 'bonnnebwnn4sjw9twogv' 
-"""
-app.config['MYSQL_HOST']='localhost'
-app.config['MYSQL_USER']='root'
-app.config['MYSQL_PASSWORD']='usuario1'
-app.config['MYSQL_DB']='proyecto_SistemaYRedes'
+
+app.config['MYSQL_HOST']=host_mysql
+app.config['MYSQL_USER']=user_mysql
+app.config['MYSQL_PASSWORD']=password_mysql
+app.config['MYSQL_DB']=db_mysql
 mysql = MySQL(app)
 
 # settings
