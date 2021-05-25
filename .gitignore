@@ -1,3 +1,4 @@
 projecto/menu
 .env
 bd_data.txt
+__pycache__/
