@@ -1,5 +1,100 @@
 {% extends "layout.html" %} {% block content %}
-<h1>home</h1>
-
-<p>Esta es una version de prueba</p>
+<!-- Image and text -->
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">
+    <img src="{{ url_for('static', filename='img/logo.JPG') }}" alt="Icono de inicio" width="100" height="100" class="d-inline-block align-top" alt="">
+    WORKFOX MAINTENANCE
+  </a>
+  <nav class="navbar navbar-dark bg-dark">
+  <form class="form-inline">
+    <input class="form-control mr-sm-2	" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+  </form></nav>
+</nav>
+<!-- Image and text
+<img src="{{ url_for('static', filename='img/logo.JPG') }}" alt="Icono de inicio" />-->
+<hr>
+<hr>
+<p1></p1>
+<div class="media">
+  <img src="{{ url_for('static', filename='img/MISION.jpg') }}" class="mr-3" alt="..." width="195" height="200">
+  <div class="media-body">
+    <h5 class="font-weight-bold">Misión : </h5>
+    <p>Somos una empresa de mantenimiento y seguridad de la información, que ayuda a generar valor a sus clientes, generando el cumplimiento de sus objetivos estratégicos mediante el uso de metodologías tecnológicas estructuradas y adaptables.</p>
+  </div>
+</div>
+<hr>
+<p></p>
+<div class="media">
+  <img src="{{ url_for('static', filename='img/VISION.jpg') }}" class="mr-3" alt="..." width="195" height="200">
+  <div class="media-body">
+    <h5 class="font-weight-bold">Visión : </h5>
+    <p>Ser reconocidos como una empresa con servicios de calidad, excelencia e integralidad. Ser percibidos como un aliado estratégico, a través de la generación de valor y con un alto nivel de satisfacción de sus clientes, empleados y socios.</p>
+  </div>
+</div>
+<hr>
+<h2>Valores</h2>
+ <hr>
+ <p>
+  <a class="btn btn-light" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">COMPROMISO</a>
+  <button class="btn btn-dark" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">PASIÓN</button>
+  <button class="btn btn-warning" type="button" data-toggle="collapse" data-target="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample2">HONESTIDAD</button>
+  <button class="btn btn-danger" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2"> Valores</button>
+</p>
+<div class="row">
+  <div class="col">
+    <div class="collapse multi-collapse" id="multiCollapseExample1">
+      <div class="card card-body text-dark bg-light">
+        Compartiendo conocimientos, experiencias y esfuerzo, para poder ofrecer el mejor servicio. Supone trabajar con liderazgo bajo un método, en un ambiente que promueva el enriquecimiento, en el cual se valoran y se respetan todas las opiniones e ideas.
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="collapse multi-collapse" id="multiCollapseExample2">
+      <div class="card card-body text-white bg-dark">
+        Contando con esa fuerza interior implacable, que sale del corazón y del alma. Con elementos más trascendentales que el dinero o metas individuales. Soñamos con una organización con pasión dirigida a clientes, que se apartan de lo razonable para otros
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+ <div class="col">
+    <div class="collapse multi-collapse" id="multiCollapseExample3">
+      <div class="card card-body text-white bg-warning">
+        Con transparencia, honradez e integridad en nuestras relaciones del día a día, empezando por nosotros mismos y rechazando prácticas de negocio injustas, orientadas a obtener una ventaja particular y siendo ejemplo para los demás. Hacemos lo que sabemos…
+      </div>
+    </div>
+  </div>
+  <hr>
+  <hr>
+  <img src="{{ url_for('static', filename='img/contac.JPG') }}" alt="Icono de inicio" width="850" height="150" class="d-inline-block align-top" alt="" class="rounded mx-auto d-block" alt="...">
+<div class="row row-cols-1 row-cols-md-2">
+  <div class="col mb-4">
+    <div class="card">
+      <div class="card-body bg-dark">
+        <h5 class="card-title">BOGOTÁ</h5>
+        <ul>
+      <li>Daniel Tisoy</li>
+      <li>Cel: 321 9384095</li>
+      <li>Calle 45 # 67 - 28 Oficina 408</li>
+      <li>Barrio Chapinero</li>
+  </ul>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="col mb-4">
+    <div class="card">
+      <div class="card-body bg-dark">
+        <h5 class="card-title">TUNJA</h5>
+         <ul>
+      <li>Carlos Obando</li>
+      <li>Cel: 313 8463674</li>
+      <li>Car 10 # 79 - 64 Oficina 503</li>
+      <li>Barrio Los Muiscas</li>
+  </ul>
+        </p>
+      </div>
+    </div>
+  </div>
 {% endblock %}
