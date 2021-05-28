@@ -1,16 +1,18 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<h1>mantenimiento</h1>
-<br>
-<table class="table table-striped table-bordered bg-transparent table-sm">
+<div class="text-center py-5">
+    <h1>mantenimiento</h1>
+</div>
+
+<table class="table table-hover">
     <thead>
         <tr>
             <td>Id orden</td>
             <td>Id tecnico</td>
             <td>id equipo</td>
             <td>estado orden</td>
-            <td>fecha</td>
+            <td>Fecha de Inicio</td>
             <td>departamento</td>
             <td>Descripcion</td>
             <td>costo</td>
@@ -19,7 +21,7 @@
     </thead>
     <tbody>
         {% for orden in ordenes %}
-        <tr>            
+        <tr>
             <td> {{orden.0}} </td>
             <td> {{orden.1}} </td>
             <td> {{orden.2}} </td>
@@ -29,8 +31,17 @@
             <td> {{orden.6}} </td>
             <td> {{orden.7}} </td>
             <td>
-                <a href="#" class="btn btn-secondary">Editar</a>
-                <a href="/delete-orden/{{orden.0}}" class="btn btn-danger btn-delete">Eliminar</a>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Opciones
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                        <a href="#" class="btn btn-secondary dropdown-item">Editar</a>
+                        <a href="/delete-orden/{{orden.0}}" class="btn btn-danger btn-delete dropdown-item">Eliminar</a>
+                    </div>
+                </div>
+
             </td>
         </tr>
         {% endfor %}

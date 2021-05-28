@@ -1,24 +1,28 @@
 {% extends "layout.html" %}
 {% block content %}
 
-<h1 class="text-center pt-4">Registro</h1>
+
 
 <form action="/registrar_tecnico" class="form-register" method="POST">
+  <h1 class="text-center pb-4">Registro</h1>
   <input class="text-input" type="number" name="cedula" id="cedula" placeholder="Numero de Identificación" />
   <input class="text-input" type="text" name="nombres" id="nombres" placeholder="Nombres Completos" />
   <input class="text-input" type="text" name="cargo" id="cargo" placeholder="Cargo del tecnico" />
   <input class="text-input" type="text" name="correo" id="correo" placeholder="Correo Electronico" />
   <input class="text-input" type="text" name="equipo" id="equipo" placeholder="Equipo de trabajo" />
 
-  <br />
   <button type="submit" class="button">
     Registrar
   </button>
-  <!-- <input class="button" type="submit" value="Registrar" /> -->
 </form>
-<br />
+
 <!-- tabla tecnicos -->
-<table class="table table-striped table-bordered bg-transparent table-sm">
+<div class="text-center py-4">
+  <h1>Tabla de tecnicos</h1>
+</div>
+
+
+  <table class="table table-hover mt-4"> 
   <thead>
     <td>Id</td>
     <td>Nombre Completo</td>
@@ -36,8 +40,20 @@
       <td>{{ tecnico.3 }}</td>
       <td>{{ tecnico.4 }}</td>
       <td>
-        <a href="/edit-tecnico/{{tecnico.0}}" class="btn btn-secondary">Editar</a>
-        <a href="/delete/{{tecnico.0}}" class="btn btn-danger btn-delete">Eliminar</a>
+        <div class="dropdown text-center">
+          <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            opciones
+          </button>
+          <div class="dropdown-menu text-center p-2 bg-dark " aria-labelledby="dropdownMenu2">
+            <div class="pb-2">
+              <a href="/edit-tecnico/{{tecnico.0}}" class="btn btn-secondary dropdown-item ">Editar</a>
+            </div>
+            
+            <a href="/delete/{{tecnico.0}}" class="btn btn-danger btn-delete dropdown-item text-white">Eliminar</a>
+          </div>
+        </div>
+
       </td>
     </tr>
     {% endfor %}
