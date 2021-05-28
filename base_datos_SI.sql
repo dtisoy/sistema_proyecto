@@ -1,9 +1,9 @@
--- DROP DATABASE IF EXISTS proyecto_SistemaYRedes;
+DROP DATABASE IF EXISTS proyecto_SistemaYRedes;
 
 -- Crear base de datos
--- CREATE DATABASE proyecto_SistemaYRedes;
+CREATE DATABASE proyecto_SistemaYRedes;
 
-USE bonnnebwnn4sjw9twogv;
+USE proyecto_SistemaYRedes;
 
 -- Insertando tablas
 CREATE TABLE administradores (
