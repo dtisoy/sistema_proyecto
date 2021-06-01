@@ -7,7 +7,7 @@ from flask_mysqldb import MySQL
 # definir como archivo de arranque
 app = Flask(__name__)
 
-#cargar archivo .env
+# cargar archivo .env
 load_dotenv()
 
 host_mysql = os.getenv('HOST_SQL')
@@ -18,22 +18,25 @@ db_mysql = os.getenv('DB_MYSQL')
 # Mysql connection
 # conexion remota
 
-app.config['MYSQL_HOST']=host_mysql
-app.config['MYSQL_USER']=user_mysql
-app.config['MYSQL_PASSWORD']=password_mysql
-app.config['MYSQL_DB']=db_mysql
+app.config['MYSQL_HOST'] = host_mysql
+app.config['MYSQL_USER'] = user_mysql
+app.config['MYSQL_PASSWORD'] = password_mysql
+app.config['MYSQL_DB'] = db_mysql
 mysql = MySQL(app)
 
 # settings
 app.secret_key = 'mysecretkey'
 
-#-----Definiendo rutas --------
+# -----Definiendo rutas --------
 # --------------------- pagina principal ------------------
+
+
 @app.route('/')
 def home():
     return render_template('home.html')
 
 # --------------------- modulo de registro ------------------
+
 
 @app.route('/registro')
 def registro():
@@ -46,6 +49,8 @@ def registro():
 
 # recibir los datos de la pagina de registro
 # e insertarlo en la base de datos
+
+
 @app.route('/registrar_tecnico', methods=['POST'])
 def registrar_tecnico():
     # obtener los datos del formulario
@@ -56,7 +61,7 @@ def registrar_tecnico():
         cargo = request.form['cargo']
         email = request.form['correo']
         equipo = request.form['equipo']
-        #ejecutar consulta
+        # ejecutar consulta
         cur = mysql.connection.cursor()
         cur.execute(
             'INSERT INTO tecnicos (ce_tec, nom_tec, car_tec, cor_tec, equ_tec) VALUES (%s,%s,%s,%s,%s)', (id, nombre, cargo, email, equipo))
@@ -64,11 +69,13 @@ def registrar_tecnico():
         cur.close()
         # enviar mensaje a traves de flash al usuario
         flash('Tecnico registrado Satisfactoriamente')
-        # redireccionar a la pagina de registro 
+        # redireccionar a la pagina de registro
         # mostrando los nuevos datos
         return redirect(url_for('registro'))
 
 # Eliminar un registro de la tabla tecnicos
+
+
 @app.route('/delete/<string:ce_tec>')
 def delete_tecnico(ce_tec):
     # se inserta un try porque ocurre un error
@@ -88,6 +95,8 @@ def delete_tecnico(ce_tec):
 # obtener los datos de una fila de la tabla tecnicos
 # los datos son enviados a traves del enlace editar.
 # se obiene el id del dato a editar
+
+
 @app.route('/edit-tecnico/<string:ce_tec>')
 def obtener_registro_tecnico(ce_tec):
     # se busca el registro en la bd y se lo envia al template update
@@ -99,6 +108,8 @@ def obtener_registro_tecnico(ce_tec):
     return render_template('edit-registro.html', tecnico=data[0])
 
 # recibe la redireccion con los datos a traves del metodo post
+
+
 @app.route('/update-tecnico/<string:ce_tec>', methods=['POST'])
 def update_tecnico(ce_tec):
     if request.method == 'POST':
@@ -126,13 +137,31 @@ def update_tecnico(ce_tec):
 
 # --------------------- modulo de equipos ------------------
 
+
 @app.route('/equipos')
 def equipos():
-    return render_template('equipos.html')
+    cur = mysql.connection.cursor()
+    cur.execute('SELECT * FROM equipos')
+    data = cur.fetchall()
+    return render_template('equipos.html', equipos=data)
+
+# --------------------- Eliminar equipos ------------------
+
+
+@app.route('/delete-equipo/<string:id_equ>')
+def delete_equipo(id_equ):
+    cur = mysql.connection.cursor()
+    cur.execute('DELETE FROM equipos WHERE id_equ  = {0}'.format(id_equ))
+    mysql.connection.commit()
+    flash('Equipo eliminado de manera correcta')
+    # se redirige al template para ver los cambios
+    return redirect(url_for('equipos'))
 
 # --------------------- moudulo de mantenimiento ------------------
-# la funcion obtiene los registros y los manda al template 
+# la funcion obtiene los registros y los manda al template
 # mantenimiento a traves de data
+
+
 @app.route('/mantenimiento')
 def mantenimiento():
     cur = mysql.connection.cursor()
@@ -140,8 +169,10 @@ def mantenimiento():
     data = cur.fetchall()
     return render_template('mantenimiento.html', ordenes=data)
 
-# se ejecuta la consulta de eliminacion solicitada 
+# se ejecuta la consulta de eliminacion solicitada
 # a traves del boton del template
+
+
 @app.route('/delete-orden/<string:id_ord>')
 def delete_orden(id_ord):
     cur = mysql.connection.cursor()
