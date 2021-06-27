@@ -40,12 +40,9 @@ def home():
 
 @app.route('/registro')
 def registro():
-    # obtener registros de base de datos
-    cur = mysql.connection.cursor()
-    cur.execute('SELECT * FROM tecnicos')
-    data = cur.fetchall()
+
     # enviar los datos al template
-    return render_template('registro.html', tecnicos=data)
+    return render_template('registro/form-registro.html')
 
 # recibir los datos de la pagina de registro
 # e insertarlo en la base de datos
@@ -71,7 +68,7 @@ def registrar_tecnico():
         flash('Tecnico registrado Satisfactoriamente')
         # redireccionar a la pagina de registro
         # mostrando los nuevos datos
-        return redirect(url_for('registro'))
+        return redirect(url_for('tecnicos'))
 
 # Eliminar un registro de la tabla tecnicos
 
@@ -86,11 +83,11 @@ def delete_tecnico(ce_tec):
         cur.execute('DELETE FROM tecnicos WHERE ce_tec  = {0}'.format(ce_tec))
         mysql.connection.commit()
         flash('Tecnico eliminado Satisfactoriamente')
-        return redirect(url_for('registro'))
+        return redirect(url_for('tecnicos'))
 
     except:
         flash('ohh, ha ocurrido un error, prueba borrando las ordenes activas')
-        return redirect(url_for('registro'))
+        return redirect(url_for('tecnicos'))
 
 # obtener los datos de una fila de la tabla tecnicos
 # los datos son enviados a traves del enlace editar.
@@ -105,7 +102,7 @@ def obtener_registro_tecnico(ce_tec):
     cur.execute('SELECT * FROM tecnicos WHERE ce_tec = {0}'.format(ce_tec))
     data = cur.fetchall()
 
-    return render_template('edit-registro.html', tecnico=data[0])
+    return render_template('registro/edit-registro.html', tecnico=data[0])
 
 # recibe la redireccion con los datos a traves del metodo post
 
@@ -133,7 +130,15 @@ def update_tecnico(ce_tec):
 
         flash('Datos actualizados de manera correcta')
         # se redirecciona al template registro para mostrar los cambios.
-        return redirect(url_for('registro'))
+        return redirect(url_for('tecnicos'))
+
+@app.route('/tecnicos')
+def tecnicos():
+    # obtener registros de base de datos
+    cur = mysql.connection.cursor()
+    cur.execute('SELECT * FROM tecnicos')
+    data = cur.fetchall()
+    return render_template('registro/tabla-tecnicos.html', tecnicos=data)
 
 # --------------------- modulo de equipos ------------------
 
@@ -143,7 +148,11 @@ def equipos():
     cur = mysql.connection.cursor()
     cur.execute('SELECT * FROM equipos')
     data = cur.fetchall()
-    return render_template('equipos.html', equipos=data)
+    return render_template('equipos/tabla-equipos.html', equipos=data)
+
+@app.route('/registrar-equipo')
+def registrar_equipo():
+    return render_template('equipos/formulario-equipos.html')
 
 # --------------------- Eliminar equipos ------------------
 
@@ -167,7 +176,7 @@ def mantenimiento():
     cur = mysql.connection.cursor()
     cur.execute('SELECT * FROM orden_trabajo')
     data = cur.fetchall()
-    return render_template('mantenimiento.html', ordenes=data)
+    return render_template('mantenimiento/tabla-mantenimiento.html', ordenes=data)
 
 # se ejecuta la consulta de eliminacion solicitada
 # a traves del boton del template

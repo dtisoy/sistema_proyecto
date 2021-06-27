@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block content %}
+
+
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+      <a class="nav-link" href="/tecnicos">Tecnicos</a>
+  </li>
+  <li class="nav-item">
+      <a class="nav-link" href="/registro">Formulario de registro tecnicos</a>
+  </li>
+</ul>
+
+<form action="/registrar_tecnico" class="form-register" autocomplete="off" method="POST">
+  <h1 class="text-center pb-4">Registro</h1>
+  <input class="text-input" type="number" name="cedula" id="cedula" placeholder="Numero de Identificación" maxlength="10" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"/>
+  <input class="text-input" type="text" name="nombres" id="nombres" placeholder="Nombres Completos" />
+  <input class="text-input" type="text" name="cargo" id="cargo" placeholder="Cargo del tecnico" />
+  <input class="text-input" type="text" name="correo" id="correo" placeholder="Correo Electronico" />
+  <input class="text-input" type="text" name="equipo" id="equipo" placeholder="Equipo de trabajo" />
+
+  <button type="submit" class="button">
+    Registrar
+  </button>
+</form>
+
+
+
+{% endblock %}
+<!-- main container -->

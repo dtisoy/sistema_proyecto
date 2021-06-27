@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link" href="/tecnicos">Tecnicos</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/registro">Formulario de registro tecnicos</a>
+    </li>
+  </ul>
+<!-- tabla tecnicos -->
+<div class="text-center py-4">
+    <h1>Tabla de tecnicos</h1>
+  </div>
+  
+  
+    <table class="table table-hover mt-4"> 
+    <thead>
+      <td>Id</td>
+      <td>Nombre Completo</td>
+      <td>Cargo</td>
+      <td>Correo</td>
+      <td>Equipo de trabajo</td>
+      <td>Operaciones</td>
+    </thead>
+    <tbody>
+      {% for tecnico in tecnicos %}
+      <tr>
+        <td>{{ tecnico.0 }}</td>
+        <td>{{ tecnico.1 }}</td>
+        <td>{{ tecnico.2 }}</td>
+        <td>{{ tecnico.3 }}</td>
+        <td>{{ tecnico.4 }}</td>
+        <td>
+          <div class="dropdown text-center">
+            <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              opciones
+            </button>
+            <div class="dropdown-menu text-center p-2 bg-dark " aria-labelledby="dropdownMenu2">
+              <div class="pb-2">
+                <a href="/edit-tecnico/{{tecnico.0}}" class="btn btn-secondary dropdown-item ">Editar</a>
+              </div>
+              
+              <a href="/delete/{{tecnico.0}}" class="btn btn-danger btn-delete dropdown-item text-white">Eliminar</a>
+            </div>
+          </div>
+  
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

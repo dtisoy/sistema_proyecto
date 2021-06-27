@@ -2,6 +2,14 @@
 
 {% block content %}
 
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link" href="/equipos">Equipos</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/registrar-equipo">Formulario de registro</a>
+    </li>
+</ul>
 <div class="text-center py-5">
     <h1><strong>Equipos</strong></h1>
 </div>
@@ -24,14 +32,20 @@
             <td> {{equipo.2}} </td>
             <td> {{equipo.3}} </td>
             <td>
-                <div class="dropdown">
+                <div class="dropdown text-center">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Opciones
                     </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                        <a href="#" class="btn btn-secondary dropdown-item">Editar</a>
-                        <a href="/delete-equipo/{{equipo.0}}" class="btn btn-danger btn-delete dropdown-item">Eliminar</a>
+                    <div class="dropdown-menu text-center p-2 bg-dark" aria-labelledby="dropdownMenu2">
+                        <div class="pb-2">
+                            <a href="#" class="btn btn-secondary dropdown-item">Editar</a>
+                        </div>
+                        <div class="pb-2">
+                            <a href="/delete-equipo/{{equipo.0}}"
+                                class="btn btn-danger btn-delete dropdown-item text-white">Eliminar</a>
+                        </div>
+
                     </div>
                 </div>
 
